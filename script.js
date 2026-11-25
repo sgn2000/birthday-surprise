@@ -35,3 +35,29 @@ function updateCountdown() {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+// Tap the polaroid: it straightens up and a few hearts float out
+const photo = $("photo");
+const hearts = ["💖", "💕", "💗", "🌸", "✨", "💝"];
+photo.addEventListener("click", () => {
+  photo.classList.toggle("straight");
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const box = photo.getBoundingClientRect();
+  const cx = box.left + box.width / 2;
+  const cy = box.top + box.height / 2;
+  for (let i = 0; i < 12; i++) {
+    const el = document.createElement("span");
+    el.className = "pop";
+    el.textContent = hearts[i % hearts.length];
+    const angle = (Math.PI * 2 * i) / 12 + Math.random() * 0.4;
+    const dist = 70 + Math.random() * 60;
+    el.style.left = cx - 11 + "px";
+    el.style.top = cy - 11 + "px";
+    el.style.setProperty("--dx", Math.cos(angle) * dist + "px");
+    el.style.setProperty("--dy", Math.sin(angle) * dist - 30 + "px");
+    el.style.setProperty("--r", (Math.random() * 60 - 30) + "deg");
+    document.body.appendChild(el);
+    el.addEventListener("animationend", () => el.remove());
+  }
+  if (navigator.vibrate) navigator.vibrate(20);
+});
