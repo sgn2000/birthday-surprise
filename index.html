@@ -50,6 +50,38 @@
     <footer>made with a little bit of magic</footer>
   </main>
 
+  <!-- Birthday celebration (shown when the countdown hits zero) -->
+  <section class="celebration" id="celebration" hidden aria-live="polite">
+    <canvas id="fireworks" aria-hidden="true"></canvas>
+
+    <div class="party" id="party">
+      <div class="party-tiny">December 1 ✨</div>
+      <h2 class="party-title">Happy Birthday<br><span>Pavithra!</span></h2>
+      <p class="party-tamil">இனிய பிறந்தநாள் வாழ்த்துக்கள் 🎂</p>
+      <p class="lyric" id="lyric">&nbsp;</p>
+      <button class="sound-btn" id="soundBtn" type="button" hidden>🔊 Tap to play the song</button>
+      <button class="go-btn" id="goBtn" type="button" hidden>Let's go 🚀</button>
+    </div>
+
+    <div class="memes" id="memes" hidden>
+      <div class="bars" id="bars"></div>
+      <article class="meme" id="meme">
+        <p class="meme-when" id="memeWhen"></p>
+        <div class="meme-face" id="memeFace"></div>
+        <p class="meme-line" id="memeLine"></p>
+        <p class="meme-sub" id="memeSub"></p>
+      </article>
+      <p class="meme-tap">tap for next ➜</p>
+    </div>
+
+    <div class="finale" id="finale" hidden>
+      <div class="finale-photo"><img src="images/pavi.jpeg" alt="Pavithra smiling"></div>
+      <h2>Happy Birthday<br>Pavithra! 🎂</h2>
+      <p>Ennaikum ippadiye sirichikitte iru 💖<br>Meme-la mattum dhaan comedy… nee eppovume gethu! 😎</p>
+      <button class="go-btn" id="replayBtn" type="button">Once more 🔁</button>
+    </div>
+  </section>
+
   <script src="script.js"></script>
 </body>
 </html>
